@@ -1,2 +1,1 @@
-# spa-battle
-Small SPA implemented with most popular front-end frameworks
+# AngularJS 1 Implementation
