@@ -1,0 +1,68 @@
+<div class="row">
+
+  <!--Heroe info-->
+  <div class="col-xs-8">
+
+    <nghb-spinner [enabled]="!hero"></nghb-spinner>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ng-container *ngIf="hero">
+
+          <div class="row">
+            <div class="col-xs-8">
+              <h4>{{hero.name}}</h4>
+            </div>
+
+            <div class="col-xs-4">
+              <button type="button"
+                (click)="addToFavorites()"
+                *ngIf="isAuthenticated && !processingIsFavorite && isFavorite === false"
+                class="btn pull-right">Add to favorites</button>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <div class="col-xs-5">
+              <img class="hero-portrait"
+                [src]="hero.bigThumbnail"
+                alt="{{hero.name}} portrait">
+            </div>
+
+            <div class="col-xs-7">
+              <p>{{hero.description}}</p>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row"
+            *ngIf="isAuthenticated">
+            <div class="col-xs-4">
+              <nghb-hero-rating [rating]="rating"
+                (ratingSet)="rate($event)"></nghb-hero-rating>
+            </div>
+
+            <div class="col-xs-8">
+              <nghb-unfavorite-button *ngIf="isFavorite && !processingIsFavorite"
+                (delete)="removeFromFavorites()"></nghb-unfavorite-button>
+            </div>
+          </div>
+
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <!--Chat-->
+  <div class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <nghb-chat [heroId]="id | async"></nghb-chat>
+      </div>
+    </div>
+  </div>
+
+</div>

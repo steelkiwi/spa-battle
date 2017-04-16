@@ -1,0 +1,13 @@
+<div class="message-bubble my-message"
+  [ngClass]="{'my-message': isMyMessage, 'companions-message': !isMyMessage}">
+
+  <div class="user-thumbnail"
+    [ngStyle]="{'background-image': 'url(' + message.user.photo + ')'}">
+  </div>
+
+  <div class="message-text">
+    {{message.text}}
+    <p class="message-time">{{message.timeMoment | amTimeAgo}}</p>
+  </div>
+
+</div>

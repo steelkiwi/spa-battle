@@ -1,0 +1,7 @@
+<div [ngClass]="{clickable: !readonly}">
+  <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+    <span class="glyphicon"
+      (click)="onRatingSet(i)"
+      [ngClass]="{'glyphicon-star golden': rating >= i, 'glyphicon-star-empty': rating < i || !rating}"></span>
+  </ng-container>
+</div>

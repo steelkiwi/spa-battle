@@ -1,0 +1,15 @@
+<div class="hero-list-item">
+
+  <div class="hero-thumbnail"
+    [ngStyle]="{'background-image': 'url(' + thumbnail + ')'}">
+  </div>
+
+  <h4 class="hero-name">{{name}}</h4>
+
+  <div class="hero-rating"
+    *ngIf="rating">
+    <nghb-hero-rating [rating]="rating"
+      [readonly]="true"></nghb-hero-rating>
+  </div>
+
+</div>

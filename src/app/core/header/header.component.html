@@ -1,0 +1,29 @@
+<div class="row header">
+
+  <div class="col-xs-8 menu">
+
+
+    <ul class="nav navbar-nav">
+      <li class="user-thumbnail"
+        *ngIf="currentUser"
+        [ngStyle]="{'background-image': 'url(' + currentUser.photo + ')'}"></li>
+
+      <li [routerLinkActive]="['active']"><a routerLink="/heroes">Characters List</a></li>
+      <li *ngIf="currentUser"
+        [routerLinkActive]="['active']"><a routerLink="/favorites">Favorites List</a></li>
+      <li *ngIf="!currentUser"><a (click)="authService.loginGoogle()">Sign In/Sign Up</a></li>
+      <li *ngIf="currentUser"><a (click)="authService.logout()">Logout</a></li>
+
+    </ul>
+  </div>
+
+  <div class="col-xs-4"
+    *ngIf="showSearchComponent">
+    <input type="text"
+      [(ngModel)]="searchString"
+      (input)="searchChange()"
+      class="form-control"
+      placeholder="Search by Character Name">
+  </div>
+
+</div>

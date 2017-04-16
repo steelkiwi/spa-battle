@@ -1,0 +1,35 @@
+<div class="row">
+
+  <!--Favorites list-->
+  <div class="col-xs-8">
+
+    <ng-template #spinner><nghb-spinner [enabled]="true"></nghb-spinner></ng-template>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ng-container *ngIf="favorites | async as favorites; else spinner;">
+          <ng-container *ngFor="let favorite of favorites">
+            <nghb-favorite-heroes-list-item *ngIf="!hideRated || !favorite.rating"
+              [thumbnail]="favorite.smallThumbnail"
+              [name]="favorite.name"
+              [rating]="favorite.rating"
+              [id]="favorite.id"
+              (unfavorite)="removeFromFavorites($event)"></nghb-favorite-heroes-list-item>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+
+  </div>
+
+  <!--Options-->
+  <div class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <nghb-favorites-options (sortHeroes)="setSort($event)"
+          (hideRatedHeroes)="hideRated = $event"></nghb-favorites-options>
+      </div>
+    </div>
+  </div>
+
+</div>

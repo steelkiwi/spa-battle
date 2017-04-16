@@ -1,0 +1,21 @@
+<div class="favorite-list-item">
+
+  <div class="hero-thumbnail clickable"
+    [ngStyle]="{'background-image': 'url(' + thumbnail + ')'}"
+    [routerLink]="['/heroes', id]">
+  </div>
+
+  <h4 class="hero-name clickable"
+    [routerLink]="['/heroes', id]">{{name}}</h4>
+
+  <div class="hero-rating">
+
+    <nghb-hero-rating *ngIf="rating"
+      [rating]="rating"
+      [readonly]="true"></nghb-hero-rating>
+
+    <nghb-unfavorite-button (delete)="unfavorite.emit(id)"></nghb-unfavorite-button>
+
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<div class="form-group">
+  <select class="form-control"
+    (change)="sortHeroes.emit($event.target.value)">
+    <option value="{{sortOptions.noSort}}"></option>
+    <option value="{{sortOptions.nameAsc}}">▲ By Name</option>
+    <option value="{{sortOptions.nameDesc}}">▼ By Name</option>
+  </select>
+</div>
+
+<div class="checkbox"
+  *ngIf="showFilters">
+  <label>
+    <input type="checkbox"
+      (change)="hideRatedHeroes.emit($event.target.checked)">
+    Hide alredy rated characters
+  </label>
+</div>
+
+<div class="checkbox"
+  *ngIf="showFilters">
+  <label>
+    <input type="checkbox"
+      (change)="hideFavoriteHeroes.emit($event.target.checked)">
+    Hide favorite characters
+  </label>
+</div>

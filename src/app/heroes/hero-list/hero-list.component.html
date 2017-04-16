@@ -1,0 +1,39 @@
+<div class="row">
+
+  <!--Heroes list-->
+  <div class="col-xs-8">
+
+    <nghb-spinner [enabled]="loading"></nghb-spinner>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ng-container *ngFor="let hero of heroes">
+          <nghb-hero-list-item class="clickable"
+            *ngIf="(!hideRated || !hero.rating) && (!hideFavorites || !hero.isFavorite)"
+            [routerLink]="['/heroes', hero.id]"
+            [thumbnail]="hero.smallThumbnail"
+            [name]="hero.name"
+            [rating]="hero.rating"></nghb-hero-list-item>
+        </ng-container>
+      </div>
+    </div>
+
+    <button type="button"
+      class="btn center-block"
+      (click)="getSomeRandomHeroes()">Load More</button>
+
+  </div>
+
+  <!--Options-->
+  <div class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <nghb-hero-list-options [showFilters]="isAuthenticated"
+          (sortHeroes)="sort($event)"
+          (hideRatedHeroes)="hideRated = $event"
+          (hideFavoriteHeroes)="hideFavorites = $event"></nghb-hero-list-options>
+      </div>
+    </div>
+  </div>
+
+</div>

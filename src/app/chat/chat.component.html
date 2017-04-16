@@ -1,0 +1,13 @@
+<div class="chat-box">
+  <div class="chat-messages" #chatMessages>
+
+    <nghb-message *ngFor="let message of messages"
+      [message]="message"
+      [isMyMessage]="currentUser && currentUser.uid === message.user.uid"></nghb-message>
+
+  </div>
+
+   <nghb-compose-message *ngIf="currentUser"
+      [heroId]="heroId"></nghb-compose-message>
+
+</div>
