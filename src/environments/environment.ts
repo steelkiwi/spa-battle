@@ -13,7 +13,7 @@ export const environment = {
     messagingSenderId: 'TODO: define'
   },
   marvelConfig: {
-    apiUrl: 'http://gateway.marvel.com/v1/public',
+    apiUrl: 'https://gateway.marvel.com/v1/public',
     apiKey: 'TODO: define'
   }
 };
