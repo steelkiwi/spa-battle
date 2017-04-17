@@ -4,16 +4,15 @@ The goal of this project is comparison of most popular front-end frameworks in a
 We implemented the same simple Hero Book app with React, AngularJS1, Angular (^2), Ember and VUE.
 The project is in development, after all implementations are done - we will try to compare pros and cons of each framework.
 
-Each implementation sits in own branch (see `react`, `angularjs1`, `angular2`, `ember` and `vue` branches).
+Each implementation sits in own branch (see [react](https://github.com/steelkiwi/spa-battle/tree/react), [angularjs1](https://github.com/steelkiwi/spa-battle/tree/angularjs1), [angular2](https://github.com/steelkiwi/spa-battle/tree/angular2), [ember](https://github.com/steelkiwi/spa-battle/tree/ember) and [vue](https://github.com/steelkiwi/spa-battle/tree/vue) branches).
 
-App builds are available under the links below.
-**Please note, SPAs update browser's address bar dynamically, while GitHub Pages engine doesn't support redirection. Thus start from initial link every time you want to reload page with the app.**
+App builds are available under the links below:
 
 * [React App](https://steelkiwi.github.io/spa-battle/react/)
 * [AngularJS 1 App](https://steelkiwi.github.io/spa-battle/angularjs1/)
 * [Angular (^2) App](https://steelkiwi.github.io/spa-battle/angular2/)
 * [Ember App](https://steelkiwi.github.io/spa-battle/ember/)
-* [VUE App](https://steelkiwi.github.io/spa-battle/vue/)
+* [Vue App](https://steelkiwi.github.io/spa-battle/vue/)
 
 ## App Requirements
 
