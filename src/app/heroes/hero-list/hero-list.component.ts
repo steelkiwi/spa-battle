@@ -19,6 +19,7 @@ export class HeroListComponent implements OnInit, OnDestroy {
   currentSort: any;
   hideRated = false;
   hideFavorites = false;
+  searchingHeroes: boolean;
   searchingHeroesSub: Subscription;
   loading: boolean;
   subscriptions: Array<Subscription> = [];
@@ -46,8 +47,10 @@ export class HeroListComponent implements OnInit, OnDestroy {
     return this.route.queryParams
       .subscribe(newParams => {
         if (newParams && newParams.search) {
+          this.searchingHeroes = true;
           this.searchHeroes(newParams.search);
         } else {
+          this.searchingHeroes = false;
           this.getSomeRandomHeroes();
         }
       });

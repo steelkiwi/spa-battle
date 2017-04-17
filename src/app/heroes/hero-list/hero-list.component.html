@@ -20,6 +20,7 @@
 
     <button type="button"
       class="btn center-block"
+      *ngIf="!searchingHeroes"
       (click)="getSomeRandomHeroes()">Load More</button>
 
   </div>
