@@ -1,0 +1,29 @@
+{
+    "attributeQuotes": {
+        "severity": "warning"
+    },
+    "depthLevel": {
+        "severity": "warning"
+    },
+    "duplicateProperty": {
+        "severity": "error"
+    },
+    "emptyRule": {
+        "severity": "error"
+    },
+    "hexValidation": {
+        "severity": "warning"
+    },
+    "newlineAfterBlock": {
+        "severity": "warning"
+    },
+    "spaceBeforeBrace": {
+        "severity": "error"
+    },
+    "stringQuotes": {
+        "severity": "warning"
+    },
+    "urlQuotes": {
+        "severity": "error"
+    }
+}

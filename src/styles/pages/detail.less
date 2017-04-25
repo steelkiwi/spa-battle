@@ -1,0 +1,40 @@
+.detail-page {
+    .favorite-remove {
+        user-select: none;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+    }
+    .message {
+        margin-bottom: 3%;
+
+        .message-author-photo {
+            & > img {
+                display: block;
+                width: 100%;
+                border-radius: 50%;
+                border: solid 2px #fff;
+            }
+        }
+        .message-content {
+            border-radius: 2%;
+
+            .message-text {
+                word-break: break-all;
+            }
+        }
+        .message-time {
+            font-size: 0.8em;
+            color: #5e5e5e;
+        }
+    }
+}
+@media screen and (max-width: 959px) {
+    .detail-page {
+        .chat-content {
+            height: 45vh;
+        }
+    }
+}

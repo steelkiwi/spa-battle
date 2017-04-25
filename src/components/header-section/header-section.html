@@ -1,0 +1,38 @@
+<spinner></spinner>
+<header class="header-section">
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools" layout="column" layout-gt-sm="row" layout-align="center center">
+            <div flex="80" layout="row" layout-align="space-between center" layout-align-gt-sm="start center">
+                <md-button ui-sref="home" aria-label="Home">
+                    Home
+                </md-button>
+
+                <md-button ng-if="$ctrl.author" ui-sref="favorites" aria-label="Favorites">
+                    Favorites
+                </md-button>
+
+                <md-button ng-if="!$ctrl.author" ng-click="$ctrl.login()" aria-label="Login">
+                    SignIn/SignUp
+                </md-button>
+                <md-button ng-if="$ctrl.author" ng-click="$ctrl.logout()" aria-label="Logout">
+
+                    <md-list class="characters-list">
+                        <md-list-item class="md-1-line" layout="row" layout-align="space-between center">
+                            <img class="md-avatar" ng-src="{{$ctrl.author.photoURL}}" alt="">
+                            <div class="md-list-item-text" layout="row" flex="100" layout-align="space-between center">
+                                {{$ctrl.author.displayName}} (Logout)
+                            </div>
+                        </md-list-item>
+                    </md-list>
+
+                </md-button>
+            </div>
+            <md-content ng-if="$ctrl.currentState === 'home'" hide-sm hide-xs layout="row" layout-align="center center" layout-align-gt-sm="end center">
+                <input type="text" ng-model="$ctrl.search" placeholder="Search" enter-sender="$ctrl.find()">
+            </md-content>
+        </div>
+    </md-toolbar>
+    <md-input-container ng-if="$ctrl.currentState === 'home'" hide-gt-sm md-no-float="" layout="row" layout-align="center center" layout-align-gt-sm="end center">
+        <input type="text" ng-model="$ctrl.search" placeholder="Search" enter-sender="$ctrl.find($event)">
+    </md-input-container>
+</header>

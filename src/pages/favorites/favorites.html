@@ -1,0 +1,38 @@
+<app class="favorite-page">
+    <div layout="row" layout-wrap="">
+        <main layout="column" flex="100" flex-gt-sm="66" flex-order="2" flex-order-gt-sm="1">
+            <md-card class="main" layout-padding="">
+                <md-list class="characters-list">
+                    <md-list-item class="md-1-line" ui-sref="detail({id: item.id})" ng-repeat="(key, item) in filteredItems = ($ctrl.characters | hideRated:$ctrl.hideRated | orderBy: $ctrl.sort)" layout="row" layout-align="space-between center">
+                        <img ng-src="{{item.thumbnail.path + '.' + item.thumbnail.extension}}" class="md-avatar" alt="" />
+                        <div class="md-list-item-text" layout="row" flex="100" layout-align="space-between center">
+                            <md-truncate>{{item.name}}</md-truncate>
+                            <rating character="item"></rating>
+                            <md-button  class="md-icon-button" ng-click="$parent.$ctrl.showConfirm($event, item)" aria-label="Delete">
+                                <md-icon>delete</md-icon>
+                            </md-button>
+                        </div>
+                    </md-list-item>
+                </md-list>
+                <nothing-found ng-if="filteredItems.length === 0"></nothing-found>
+            </md-card>
+        </main>
+        <aside layout="column" flex="100" flex-gt-sm="33" flex-order="1" flex-order-gt-sm="2">
+            <md-card class="sidebar" layout-padding="">
+                <md-card-content class="sidebar-content">
+                    <md-input-container class="md-block">
+                        <md-select name="sort" ng-model="$ctrl.sort" placeholder="Sort by">
+                            <md-option value="">-</md-option>
+                            <md-option value="name">sort by name</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-block" ng-if="$ctrl.currentAuth">
+                        <md-checkbox name="hideRated" ng-model="$ctrl.hideRated">
+                            Hide already rated characters
+                        </md-checkbox>
+                    </md-input-container>
+                </md-card-content>
+            </md-card>
+        </aside>
+    </div>
+</app>

@@ -1,0 +1,8 @@
+<div class="rating" layout="row" layout-align="center space-between">
+    <md-button class="md-icon-button" ng-repeat="index in $ctrl.constants.availableRatingArray" ng-click="$ctrl.setRating(index)" aria-label="Star">
+        <md-icon>
+            <span ng-if="index <= $ctrl.character.rating">star</span>
+            <span ng-if="index > $ctrl.character.rating">star_border</span>
+        </md-icon>
+    </md-button>
+</div>

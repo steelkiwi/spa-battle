@@ -1,0 +1,60 @@
+<app class="detail-page">
+    <div layout="row" layout-wrap="">
+        <main layout="column" flex="100" flex-gt-sm="66">
+            <md-card layout="column" class="main" layout-padding="">
+                <div layout="row" layout-align-gt-sm="space-between" layout-align="center center">
+                    <h3>{{$ctrl.character.name}}</h3>
+                    <md-button hide-xs hide-sm class="md-raised md-primary" ng-if="!$ctrl.character.isFavorite && $ctrl.currentAuth" ng-click="$ctrl.setFavorite()">Add to favorites</md-button>
+                    <md-button hide-xs hide-sm class="md-raised md-primary" ng-if="$ctrl.character.isFavorite && $ctrl.currentAuth" ng-click="$ctrl.showConfirm()">Remove from favorites</md-button>
+                </div>
+                <div layout="row" layout-align="center center">
+                    <md-button hide-gt-sm class="md-raised md-primary" ng-if="!$ctrl.character.isFavorite && $ctrl.currentAuth" ng-click="$ctrl.setFavorite()">Add to favorites</md-button>
+                    <md-button hide-gt-sm class="md-raised md-primary" ng-if="$ctrl.character.isFavorite && $ctrl.currentAuth" ng-click="$ctrl.showConfirm()">Remove from favorites</md-button>
+                </div>
+                <div layout="row" layout-align="left start">
+                    <img flex="33" class="md-whiteframe-3dp" ng-src="{{$ctrl.character.image}}" alt="" />
+                    <div flex="66" layout-padding="">
+                        <p>{{$ctrl.character.description}}</p>
+                    </div>
+                </div>
+                <div layout="row" layout-align="center center" layout-align-gt-sm="left center">
+                    <rating character="$ctrl.character" ng-if="$ctrl.currentAuth"></rating>
+                </div>
+            </md-card>
+        </main>
+        <aside layout="column" flex="100" flex-gt-sm="33">
+            <md-card layout="column" class="sidebar" layout-padding="">
+                <md-content class="chat-content" flex="80">
+                    <div class="chat" layout="column">
+                        <div class="message" layout="row" flex="80" ng-repeat="message in $ctrl.chatMessages">
+                            <div flex="15" class="message-author-photo" flex-order="{{message.uid === $ctrl.currentAuth.uid ? '1': ''}}">
+                                <img ng-src="{{message.author.photo}}" alt="">
+                            </div>
+                            <div flex="85" layout="column">
+                                <md-card class="message-content md-accent md-hue-3" layout-padding="">
+                                    <div class="message-author-name">{{message.author.name}}</div>
+                                    <div class="message-text">{{ message.text }}</div>
+
+                                    <i class="message-time" layout-padding="" layout="row" layout-align="end">{{ message.formatedDate }}</i>
+                                </md-card>
+                            </div>
+                        </div>
+                        <nothing-found ng-if="$ctrl.chatMessages.length === 0"></nothing-found>
+                    </div>
+                </md-content>
+                <md-content flex="20">
+                    <form name="chatFrom" class="chat-footer" layout="row" layout-align="center center">
+                        <md-input-container md-no-float="" layout="column" flex="80">
+                            <input placeholder="Message" enter-sender="$ctrl.sendMessage($event)" name="chatMessage" ng-model="$ctrl.chatMessage" required />
+                        </md-input-container>
+                        <div layout="column">
+                            <md-button class="md-fab md-primary md-mini" ng-click="$ctrl.sendMessage($event)">
+                                <md-icon class="material-icons">send</md-icon>
+                            </md-button>
+                        </div>
+                    </form>
+                </md-content>
+            </md-card>
+        </aside>
+    </div>
+</app>

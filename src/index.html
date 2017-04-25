@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <title>AngularJS HeroBook</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css"/>
+        <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+        <!-- build:css({.tmp,src}) styles/app.css -->
+        <link rel="stylesheet" href="index.css"/>
+        <!-- endbuild -->
+    </head>
+
+    <body ng-app="app">
+        <header-section></header-section>
+        <ui-view></ui-view>
+
+        <!-- build:js({.tmp,src}) scripts/app.js -->
+        <!-- inject:modules -->
+        <!-- endinject -->
+        <!-- inject:js -->
+        <!-- js files will be automatically insert here -->
+        <!-- endinject -->
+        <!-- inject:partials -->
+        <!-- endinject -->
+        <!-- endbuild -->
+        <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    </body>
+</html>
