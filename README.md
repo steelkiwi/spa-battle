@@ -16,10 +16,16 @@ App builds are available under the links below:
 
 ## App Requirements
 
-The app is simple comix hero catalogue with next functionality:
+The app must be comics heroes catalogue SPA.
+
+Use [Marvel API](https://developer.marvel.com/docs) as heroes data source.
+
+Use [Firebase](https://firebase.google.com/) for saving data.
+
+Required functionality:
 
 * auth with Google account via Firebase
-* random hero list from Marvel API endpoint with load more, search by name, sort, filter favorites, filter rated features
-* user's favorite heroes list
-* hero details page (+ set rating, favorite/unfavorite features for authenticated users)
-* dedicated chat room for each hero
+* random hero list with load more, search by name, sort, filter favorites, filter rated features
+* user's favorite heroes list for authenticated users
+* hero details page with show/set rating, favorite/unfavorite features for authenticated users
+* dedicated chat room for each hero on details page
