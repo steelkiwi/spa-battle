@@ -1,0 +1,6 @@
+{
+  "name"    : "ng-electron-hero-book",
+  "productName": "Hero Book",
+  "version" : "1.0.0",
+  "main"    : "electron.js"
+}
