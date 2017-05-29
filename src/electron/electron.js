@@ -16,6 +16,19 @@ function createWindow() {
       callback({ cancel: false, requestHeaders: details.requestHeaders });
     });
 
+  if (process.env.NODE_ENV === 'development') {
+    console.info('Electron dev mode enabled');
+    win.webContents.openDevTools();
+
+    const chokidar = require('chokidar');
+    const debounce = require('debounce');
+    chokidar.watch(__dirname).on('change', debounce(() => {
+      const currentLocation = win.webContents.getURL()
+      const currentRoute = currentLocation.slice(currentLocation.indexOf('#'));
+      win.loadURL(`file://${__dirname}/index.html${currentRoute}`);
+    }, 1000));
+  }
+
   win.on('closed', () => {
     win = null;
   });
